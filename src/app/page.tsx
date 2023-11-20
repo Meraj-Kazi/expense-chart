@@ -2,10 +2,15 @@ export default function Home() {
     const navItems = ['1M', '6M', '1Y', 'all time'];
     const categories = ['Personal', 'Shopping', 'Phone', 'Other'];
     return (
-        <main className=' bg-[#430099] flex min-h-screen flex-col items-center justify-between p-24'>
+        <main
+            className=' bg-[#430099] flex min-h-screen flex-col items-center justify-between p-24 
+            font-helvetica_neue '
+        >
             <div className='flex flex-col items-center justify-between  '>
                 {/* Title */}
-                <h1>Expense Chart</h1>
+                <h1 className='text-[#FFF] text-[2.625rem] font-[700] mb-[2.13rem]'>
+                    Expense Chart
+                </h1>
 
                 {/* Card */}
                 <div className=' bg-[#FFF]'>
