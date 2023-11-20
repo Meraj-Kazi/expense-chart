@@ -18,7 +18,9 @@ export default function Home() {
                     items-center'
                 >
                     {/* Card Title */}
-                    <p>Expenses</p>
+                    <p className='text-[#1F1F23] text-[1.5rem] font-[700] mb-[2.62rem] mt-[2rem]'>
+                        Expenses
+                    </p>
 
                     {/* Filter Nav */}
                     <div>
