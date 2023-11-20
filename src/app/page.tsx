@@ -13,7 +13,10 @@ export default function Home() {
                 </h1>
 
                 {/* Card */}
-                <div className=' bg-[#FFF]'>
+                <div
+                    className=' bg-[#FFF] w-[35.06rem] h-[34.06rem] rounded-[2.5rem] flex flex-col
+                    items-center'
+                >
                     {/* Card Title */}
                     <p>Expenses</p>
 
