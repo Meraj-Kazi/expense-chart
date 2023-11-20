@@ -23,7 +23,10 @@ export default function Home() {
                     </p>
 
                     {/* Filter Nav */}
-                    <div>
+                    <div
+                        className='bg-[#F5F6FA] rounded-[1.875rem] gap-[0.75rem] 
+                        flex w-[18.1875rem] h-[3.5rem] items-center justify-center'
+                    >
                         {navItems.map((item, index) => {
                             return <div key={index}>{item}</div>;
                         })}
