@@ -25,10 +25,19 @@ export default function Home() {
                     {/* Filter Nav */}
                     <div
                         className='bg-[#F5F6FA] rounded-[1.875rem] gap-[0.75rem] 
-                        flex w-[18.1875rem] h-[3.5rem] items-center justify-center'
+                        flex w-[18.1875rem] h-[3.5rem] items-center justify-center 
+                        mb-[1.58rem]'
                     >
                         {navItems.map((item, index) => {
-                            return <div key={index}>{item}</div>;
+                            return (
+                                <div
+                                    className='text-[#373B47] text-[0.75rem] font-[400] leading-[1rem]
+                                    uppercase px-[0.5rem] py-[0.62rem]'
+                                    key={index}
+                                >
+                                    {item}
+                                </div>
+                            );
                         })}
                     </div>
 
