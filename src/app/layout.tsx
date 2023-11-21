@@ -22,7 +22,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang='en'>
-            <body className={helvetica_neue.className}>{children}</body>
+            <body className={`${helvetica_neue.className} ${inter.className}`}>
+                {children}
+            </body>
         </html>
     );
 }

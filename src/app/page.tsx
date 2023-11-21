@@ -1,6 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
-import dbdata from '../../data/expense-data.json';
+
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
     const [data, setData] = useState([]);
@@ -25,8 +28,8 @@ export default function Home() {
     }, []);
 
     const styles = () => ({
-        width: `10rem`,
-        height: `10rem`,
+        width: `16.5rem`,
+        height: `16.5rem`,
         background: `conic-gradient( #9d9bf4 60deg,
         #4c49ed 60deg 150deg,
         #4fd18b 150deg 200deg,
@@ -75,21 +78,34 @@ export default function Home() {
                     </div>
 
                     {/* Chart */}
-                    <div>
-                        {/* Code to generate chart */}
+                    <div
+                        style={styles()}
+                        className=' rounded-[20rem] flex items-center justify-center mb-[2.94rem]'
+                    >
                         <div
-                            style={styles()}
-                            className=' w-[10rem] h-[10rem] rounded-[20rem] flex items-center 
-                            justify-center'
+                            className='bg-[#FFF] w-[13.25rem] h-[13.25rem] rounded-[20rem]
+                            flex items-center justify-center'
                         >
-                            <div className='bg-[#FFF] w-[8rem] h-[8rem] rounded-[20rem]'></div>
+                            <p className=' text-[#111] text-[2.5rem] font-[700]'>
+                                $ 5,485
+                                <span
+                                    className={`${inter.className} font-[800] text-[#AFADFE] text-[1.1875rem]`}
+                                >
+                                    .00
+                                </span>
+                            </p>
                         </div>
                     </div>
 
                     {/* Categories */}
-                    <div>
+                    <div className='flex gap-[1.37rem]'>
                         {categories.map((categoryItem, index) => {
-                            return <div key={index}>{categoryItem}</div>;
+                            return (
+                                <div key={index} className='flex gap-[0.81rem]'>
+                                    <span> color </span>
+                                    <p>{categoryItem}</p>
+                                </div>
+                            );
                         })}
                     </div>
                 </div>
