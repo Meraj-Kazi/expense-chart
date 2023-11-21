@@ -8,7 +8,12 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
     const [data, setData] = useState([]);
     const navItems = ['1M', '6M', '1Y', 'all time'];
-    const categories = ['Personal', 'Shopping', 'Phone', 'Other'];
+    const categories = [
+        { name: 'Personal', color: `bg-[#4C49ED]` },
+        { name: 'Shopping', color: `bg-[#9D9BF4]` },
+        { name: 'Phone', color: `bg-[#4FD18B]` },
+        { name: 'Other', color: `bg-[#141197]` },
+    ];
 
     const getData = () => {
         fetch('expense-data.json', {
@@ -16,11 +21,15 @@ export default function Home() {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
             },
-        }).then((res) => {
-            res.json().then((allData) => {
-                setData(allData);
+        })
+            .then((res) => {
+                res.json().then((allData) => {
+                    setData(allData);
+                });
+            })
+            .catch((err) => {
+                return err.message;
             });
-        });
     };
 
     useEffect(() => {
@@ -39,7 +48,7 @@ export default function Home() {
 
     return (
         <main
-            className=' bg-[#430099] flex min-h-screen flex-col items-center justify-between p-24 
+            className=' bg-[#430099] flex min-h-screen  flex-col items-center justify-between p-24 
             font-helvetica_neue '
         >
             <div className='flex flex-col items-center justify-between  '>
@@ -101,9 +110,20 @@ export default function Home() {
                     <div className='flex gap-[1.37rem]'>
                         {categories.map((categoryItem, index) => {
                             return (
-                                <div key={index} className='flex gap-[0.81rem]'>
-                                    <span> color </span>
-                                    <p>{categoryItem}</p>
+                                <div
+                                    key={index}
+                                    className='flex items-center gap-[0.81rem]'
+                                >
+                                    <span
+                                        className={`w-[2.3125rem] h-[0.8125rem] ${categoryItem.color}
+                                        rounded-[2.0625rem]`}
+                                    ></span>
+                                    <p
+                                        className='text-[#938FA3] text-[1rem] font-[500] 
+                                         tracking-[-0.02rem]'
+                                    >
+                                        {categoryItem.name}
+                                    </p>
                                 </div>
                             );
                         })}
