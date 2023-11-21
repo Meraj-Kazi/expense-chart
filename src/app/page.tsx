@@ -24,6 +24,16 @@ export default function Home() {
         getData();
     }, []);
 
+    const styles = () => ({
+        width: `10rem`,
+        height: `10rem`,
+        background: `conic-gradient( #9d9bf4 60deg,
+        #4c49ed 60deg 150deg,
+        #4fd18b 150deg 200deg,
+        #141197 200deg 360deg
+    )`,
+    });
+
     return (
         <main
             className=' bg-[#430099] flex min-h-screen flex-col items-center justify-between p-24 
@@ -65,7 +75,16 @@ export default function Home() {
                     </div>
 
                     {/* Chart */}
-                    <div>{/* Code to generate chart */}</div>
+                    <div>
+                        {/* Code to generate chart */}
+                        <div
+                            style={styles()}
+                            className=' w-[10rem] h-[10rem] rounded-[20rem] flex items-center 
+                            justify-center'
+                        >
+                            <div className='bg-[#FFF] w-[8rem] h-[8rem] rounded-[20rem]'></div>
+                        </div>
+                    </div>
 
                     {/* Categories */}
                     <div>

@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.chart {
+    background: conic-gradient(
+        #9d9bf4 60deg,
+        #4c49ed 60deg 150deg,
+        #4fd18b 150deg 200deg,
+        #141197 200deg 360deg
+    );
+}
