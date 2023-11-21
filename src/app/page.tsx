@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
     const [data, setData] = useState([]);
+    const [activeNav, setActiveNav] = useState('all time');
+    const [activeNavData, setActiveNavData] = useState({});
     const navItems = ['1M', '6M', '1Y', 'all time'];
     const categories = [
         { name: 'Personal', color: `bg-[#4C49ED]` },
@@ -22,6 +24,7 @@ export default function Home() {
             .then((res) => {
                 res.json().then((allData) => {
                     setData(allData);
+                    setActiveNavData(allData[0]);
                 });
             })
             .catch((err) => {
@@ -32,6 +35,17 @@ export default function Home() {
     useEffect(() => {
         getData();
     }, []);
+
+    const handleClick = (navValue: any) => {
+        const selectedPeriod = navValue.currentTarget.textContent;
+        setActiveNav(selectedPeriod);
+
+        data.map((item: any) => {
+            if (item.period.toLowerCase() === selectedPeriod.toLowerCase()) {
+                setActiveNavData(item);
+            }
+        });
+    };
 
     return (
         <main
@@ -63,9 +77,19 @@ export default function Home() {
                         {navItems.map((item, index) => {
                             return (
                                 <div
-                                    className='text-[#373B47] text-[0.75rem] font-[400] leading-[1rem]
-                                    uppercase px-[0.5rem] py-[0.62rem]'
+                                    className={`text-[#373B47] text-[0.75rem] font-[400] leading-[1rem]
+                                    uppercase py-[0.5rem] px-[0.62rem] cursor-pointer 
+                                    ${
+                                        item == activeNav
+                                            ? ` bg-[#FFF] rounded-[1rem] 
+                                                flex justify-center text-[#003EFF]`
+                                            : ''
+                                    }
+                                    `}
                                     key={index}
+                                    onClick={(e) => {
+                                        handleClick(e);
+                                    }}
                                 >
                                     {item}
                                 </div>
@@ -74,7 +98,7 @@ export default function Home() {
                     </div>
 
                     {/* Chart */}
-                    {data.length > 0 && <Chart values={data[0]} />}
+                    {activeNavData && <Chart values={activeNavData} />}
 
                     {/* Categories */}
                     <div className='flex gap-[1.37rem]'>

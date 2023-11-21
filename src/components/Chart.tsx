@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -6,11 +6,16 @@ const inter = Inter({ subsets: ['latin'] });
 const Chart = ({ values }: { values: any }) => {
     const total =
         values.personal + values.shopping + values.phone + values.other;
+    const intTotal = parseInt(total).toLocaleString();
+    const decimalTotal = (total - parseInt(total)).toFixed(2).split('.')[1];
 
+    // Calculate percentage value for css styling
     const otherPercentage = (values.other * 360) / total;
-    const shoppingPercentage = (values.shopping * 360) / total;
-    const personalPercentage = (values.personal * 360) / total;
-    const phonePercentage = (values.phone * 360) / total;
+    const shoppingPercentage =
+        otherPercentage + (values.shopping * 360) / total;
+    const personalPercentage =
+        shoppingPercentage + (values.personal * 360) / total;
+    const phonePercentage = personalPercentage + (values.phone * 360) / total;
 
     const styles = () => ({
         width: `16.5rem`,
@@ -32,11 +37,11 @@ const Chart = ({ values }: { values: any }) => {
                             flex items-center justify-center rotate-180'
             >
                 <p className=' text-[#111] text-[2.5rem] font-[700] '>
-                    $ 5,485
+                    ${intTotal}
                     <span
                         className={`${inter.className} font-[800] text-[#AFADFE] text-[1.1875rem]`}
                     >
-                        .00
+                        .{decimalTotal}
                     </span>
                 </p>
             </div>
