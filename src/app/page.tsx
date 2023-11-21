@@ -49,19 +49,19 @@ export default function Home() {
 
     return (
         <main
-            className=' bg-[#430099] flex min-h-screen  flex-col items-center justify-between p-24 
+            className=' bg-[#430099] flex min-h-screen flex-col items-center pb-20
             font-helvetica_neue '
         >
-            <div className='flex flex-col items-center justify-between  '>
+            <div className='flex flex-col items-center   '>
                 {/* Title */}
-                <h1 className='text-[#FFF] text-[2.625rem] font-[700] mb-[2.13rem]'>
+                <h1 className='text-[#FFF] text-[2.625rem] font-[700] mb-[2.13rem] mt-[5.44rem]'>
                     Expense Chart
                 </h1>
 
                 {/* Card */}
                 <div
-                    className=' bg-[#FFF] w-[35.06rem] h-[34.06rem] rounded-[2.5rem] flex flex-col
-                    items-center'
+                    className=' bg-[#FFF] w-[calc(100vw-10vw)] h-auto rounded-[2.5rem] flex flex-col
+                    items-center pb-4 xl:w-[35.06rem] xl:h-[34.06rem] xl:pb-0'
                 >
                     {/* Card Title */}
                     <p className='text-[#1F1F23] text-[1.5rem] font-[700] mb-[2.62rem] mt-[2rem]'>
@@ -82,7 +82,7 @@ export default function Home() {
                                     ${
                                         item == activeNav
                                             ? ` bg-[#FFF] rounded-[1rem] 
-                                                flex justify-center text-[#003EFF]`
+                                                flex justify-center !text-[#003EFF]`
                                             : ''
                                     }
                                     `}
@@ -101,7 +101,7 @@ export default function Home() {
                     {activeNavData && <Chart values={activeNavData} />}
 
                     {/* Categories */}
-                    <div className='flex gap-[1.37rem]'>
+                    <div className=' grid gap-[1.37rem] grid-cols-2 md:flex md:flex-row '>
                         {categories.map((categoryItem, index) => {
                             return (
                                 <div
