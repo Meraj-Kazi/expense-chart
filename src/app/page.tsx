@@ -1,6 +1,29 @@
+'use client';
+import { useEffect, useState } from 'react';
+import dbdata from '../../data/expense-data.json';
+
 export default function Home() {
+    const [data, setData] = useState([]);
     const navItems = ['1M', '6M', '1Y', 'all time'];
     const categories = ['Personal', 'Shopping', 'Phone', 'Other'];
+
+    const getData = () => {
+        fetch('expense-data.json', {
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+        }).then((res) => {
+            res.json().then((allData) => {
+                setData(allData);
+            });
+        });
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
+
     return (
         <main
             className=' bg-[#430099] flex min-h-screen flex-col items-center justify-between p-24 
