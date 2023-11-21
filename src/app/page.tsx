@@ -74,7 +74,7 @@ export default function Home() {
                     </div>
 
                     {/* Chart */}
-                    <Chart />
+                    {data.length > 0 && <Chart values={data[0]} />}
 
                     {/* Categories */}
                     <div className='flex gap-[1.37rem]'>
