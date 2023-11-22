@@ -24,7 +24,7 @@ export default function Home() {
             .then((res) => {
                 res.json().then((allData) => {
                     setData(allData);
-                    setActiveNavData(allData[0]);
+                    setActiveNavData(allData[3]);
                 });
             })
             .catch((err) => {
