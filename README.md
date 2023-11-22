@@ -20,6 +20,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Also it's hosted here, you can check from your browser:  [Expense Chart Demo]([https://nextjs.org/](https://expense-chart-demo.netlify.app/)https://expense-chart-demo.netlify.app/)
+Also it's hosted here, you can check from your browser:  [Expense Chart Demo](https://expense-chart-demo.netlify.app/)
 
 
